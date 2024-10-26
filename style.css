@@ -1,0 +1,257 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif; /* Updated font */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #e0eafc, #cfdef3); /* Gradient background for login */
+    color: #333; /* Darker text color for better readability */
+}
+
+/* Centering the main container */
+.dashboard-container {
+    max-width: 1200px; /* Wider container for dashboard */
+    margin: 50px auto; /* Center with space at the top */
+}
+
+/* Header styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.welcome-message {
+    color: #343a40; /* Darker color for headings */
+}
+
+#logout-button {
+    background-color: #dc3545; /* Bootstrap danger color */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+#logout-button:hover {
+    background-color: #c82333; /* Darker shade on hover */
+}
+
+/* Dashboard styles */
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Fine section */
+.fine-section {
+    width: 30%;
+}
+
+/* Recommendation styles */
+.recommendation-section {
+    width: 35%; /* Increased width for the recommendation section */
+    height: 400px; /* Fixed height to allow more books to be visible */
+    overflow: hidden; /* Prevents overflow from crossing the heading */
+    position: relative; /* To position the scrolling area */
+}
+
+/* Scrolling books */
+.scrolling-books {
+    position: absolute; /* Positions the scrolling books */
+    top: 40px; /* Adjusts the top position to not overlap with the heading */
+    left: 0;
+    right: 0;
+    bottom: 0; /* Allows the scrolling area to fill the section */
+    overflow-y: hidden; /* Disable vertical scrolling */
+    height: calc(100% - 40px); /* Adjusts height to leave space for heading */
+    background: rgba(255, 255, 255, 0.5); /* Transparent white background */
+    padding: 10px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    animation: scroll 120s linear infinite; /* Adjusted scroll speed to 120 seconds */
+}
+
+/* Adjust height for better visibility of books */
+.scrolling-books ul {
+    padding: 0; /* Remove padding from the list */
+    margin: 0; /* Remove margin for smoother scrolling */
+}
+
+.scrolling-books li {
+    margin-bottom: 30px; /* More space between books */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%); /* Move to the top of the list */
+    }
+}
+
+/* Borrow/Return section */
+.borrow-return-section {
+    width: 30%;
+}
+
+/* Button styles */
+.borrow-return-button {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block; /* To make button-style links */
+}
+
+.borrow-return-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #6c757d; /* Bootstrap muted text color */
+}
+
+/* Login form styles */
+#login-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#login-form h1 {
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Additional styles for the menu and dashboard */
+.menu-bar {
+    background-color: #4CAF50; /* Different color for the menu bar */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin-top: 20px; /* Lowered menu bar */
+}
+
+.menu-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.menu-button {
+    color: white;
+    text-decoration: none;
+}
+
+.menu-button:hover {
+    text-decoration: underline;
+}
+
+.recommended-books {
+    max-height: 200px; /* Limit height for scrolling */
+    overflow-y: auto; /* Enable scrolling */
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.action-button {
+    display: block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.action-button:hover {
+    background-color: #45a049;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+#message {
+    text-align: center;
+    color: red;
+    margin-top: 10px;
+}

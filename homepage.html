@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Logo and welcome message styling */
+        .logo-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .logo-container img {
+            width: 200px;
+        }
+        .welcome-message {
+            font-size: 24px;
+            color: royalblue;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        /* Navbar styling */
+        .menu-bar {
+            background-color: royalblue;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        .menu-bar .welcome-user {
+            font-size: 18px;
+        }
+        .menu-bar a, .menu-bar button {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            margin-left: 10px;
+            border: none;
+            background-color: red;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .menu-bar a:hover, .menu-bar button:hover {
+            background-color: darkred;
+        }
+        .menu-bar .logout-button {
+            background-color: red;
+        }
+
+        /* Dashboard styling */
+        .dashboard-container {
+            margin: 30px auto;
+            max-width: 1000px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        /* Borrow book form styling */
+        .borrow-form input[type="text"],
+        .borrow-form input[type="date"] {
+            padding: 8px;
+            margin: 10px;
+            font-size: 16px;
+            width: calc(100% - 40px);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .borrow-form input[type="submit"] {
+            background-color: royalblue;
+            color: white;
+            padding: 10px 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .borrow-form input[type="submit"]:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo and welcome statement -->
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/VIIT.png') }}" alt="Library Logo">
+        <div class="welcome-message">Welcome to VIT Central Library!</div>
+    </div>
+
+    <!-- Menu bar -->
+    <div class="menu-bar">
+        <div class="welcome-user">Welcome, {{ username }}</div>
+        <div class="menu-options">
+            <a href="/userdetails">User Details</a>
+            <a href="/payfine">Pay Fine</a>
+            <button class="logout-button" onclick="location.href='/logout'">Logout</button>
+        </div>
+    </div>
+
+    <!-- Dashboard content -->
+    <div class="dashboard-container">
+        <!-- Borrow Book Section -->
+        <div class="section borrow-book">
+            <h2>Borrow a Book</h2>
+            <form action="/borrow" method="POST" class="borrow-form">
+                <input type="text" name="book_code" placeholder="Enter Book Code" required>
+                <input type="submit" value="Borrow">
+            </form>
+        </div>
+
+        <!-- Fine Section -->
+        <div class="section fine-section">
+            <h2>Your Fines</h2>
+            <p>Total Fine: <span id="total-fine">₹0</span></p>
+        </div>
+
+        <!-- Available Books Section -->
+        <div class="section recommendation-section">
+            <h2>Available Books</h2>
+            <ul id="book-list">
+                {% for book in available_books %}
+                    <li>{{ book.code }} - {{ book.title }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="section update-book">
+        <h2>Update Book Details</h2>
+        <form action="/update_book" method="POST">
+            <input type="text" name="book_code" placeholder="Enter Book Code" required>
+            <input type="text" name="new_title" placeholder="Enter New Title" required>
+            <label>
+                <input type="checkbox" name="available" value="1"> Available
+            </label>
+            <input type="submit" value="Update Book">
+        </form>
+    </div>
+    
+    <footer>
+        <p style="text-align:center;">Library Management System © 2024</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrow Book</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: royalblue;
+            margin-bottom: 20px;
+        }
+        form input[type="text"],
+        form input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        form input[type="submit"] {
+            background-color: royalblue;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+        form input[type="submit"]:hover {
+            background-color: darkblue;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: royalblue;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Borrow a Book</h1>
+        <form action="/borrow" method="POST">
+            <input type="text" name="book_code" placeholder="Enter Book Code" required>
+            <input type="date" name="borrow_date" required>
+            <input type="submit" value="Borrow">
+        </form>
+        <a href="/dashboard" class="back-link">Back to Dashboard</a>
+    </div>
+</body>
+</html>
